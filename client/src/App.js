@@ -16,6 +16,7 @@ import EditProfile from "./components/EditProfile";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
+import { BrowserRouter as Router } from "react-router-dom";
 import React from "react";
 
 // import LoadingPageAnimation from './components/LoadingPageAnimation';
@@ -35,23 +36,25 @@ function App() {
       <div className="columns is-centered">
         <div className="column is-10">
           <ErrorBoundary>
-            <Switch>
-              <AnonRoute exact path="/login" component={UserLogin} />
-              <AnonRoute exact path="/signup" component={SignUp} />
-              <PrivateRoute exact path="/user" component={UserProfile} />
-              <Route exact path="/create-wine" component={createWine} />
-              <Route exact path="/winemap" component={WineMap} />
-              <Route exact path="/wine/:id" component={WineDetailsPage} />
-              <Route exact path="/search" component={SearchWines} />
-              <Route exact path="/about" component={AboutUs} />
-              <PrivateRoute
-                exact
-                path="/user/:userId"
-                component={EditProfile}
-              />
-              <Route path="/404" component={ErrorPage404} />
-              <Route exact path="/" component={HomePage} />
-            </Switch>
+            <Router>
+              <Switch>
+                <AnonRoute exact path="/login" component={UserLogin} />
+                <AnonRoute exact path="/signup" component={SignUp} />
+                <PrivateRoute exact path="/user" component={UserProfile} />
+                <Route exact path="/create-wine" component={createWine} />
+                <Route exact path="/winemap" component={WineMap} />
+                <Route exact path="/wine/:id" component={WineDetailsPage} />
+                <Route exact path="/search" component={SearchWines} />
+                <Route exact path="/about" component={AboutUs} />
+                <PrivateRoute
+                  exact
+                  path="/user/:userId"
+                  component={EditProfile}
+                />
+                <Route path="/404" component={ErrorPage404} />
+                <Route exact path="/" component={HomePage} />
+              </Switch>
+            </Router>
           </ErrorBoundary>
         </div>
       </div>

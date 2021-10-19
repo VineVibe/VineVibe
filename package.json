@@ -10,10 +10,12 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "dev:all": "concurrently \"PORT=3000 nodemon -i ./client ./bin/www\" \"PORT=5000 yarn workspace client run start\"",
-    "dev:front": "PORT=5000 yarn workspace client run start",
-    "dev:back": " PORT=3000 nodemon -i ./client ./bin/www",
-    "build": "yarn workspace client run build"
+    "dev:all": "concurrently \"cross-env PORT=3000 nodemon -i ./client ./bin/www\" \"cross-env PORT=5000 yarn workspace client run start\"",
+    "dev:front": "cross-env PORT=5000 yarn workspace client run start",
+    "dev:back": "cross-env PORT=3000 nodemon -i ./client ./bin/www",
+    "build": "yarn workspace client run build",
+    "test:client": "yarn workspace client run test",
+    "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
     "axios": "^0.22",
@@ -44,8 +46,20 @@
   },
   "devDependencies": {
     "concurrently": "^6",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.2",
-    "nodemon": "^2"
+    "jest": "^27.3.1",
+    "nodemon": "^2",
+    "supertest": "^6.1.6"
   },
-  "packageManager": "yarn@3.0.2"
+  "packageManager": "yarn@3.0.2",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/client/"
+    ]
+  }
 }
