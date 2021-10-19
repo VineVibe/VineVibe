@@ -4,8 +4,6 @@ var logger = require("morgan");
 
 const cookieParser = require("cookie-parser");
 
-const favicon = require("serve-favicon");
-
 const path = require("path");
 
 const session = require("express-session");
@@ -38,9 +36,6 @@ module.exports = (server) => {
 
   // Handles access to the public folder
   server.use(express.static(path.join(__dirname, "..", "client", "build")));
-
-  // Handles access to the favicon
-  // app.use(favicon(path.join(__dirname, "..", "public", "images", "favicon.ico")));
 
   server.use(
     session({
