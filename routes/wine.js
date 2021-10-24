@@ -1,16 +1,16 @@
 var express = require("express");
 var router = express.Router();
 const { Types } = require("mongoose");
-const User = require("../models/User.model");
 const Wine = require("../models/Wine.model");
-const Service = require("../services/service");
 
 router.get("/all-wine", async (req, res) => {
   try {
     const wines = await Wine.find().limit(100);
     res.json({ wines });
     console.log(`Found ${wines.length} wines`);
-  } catch (err) {}
+  } catch (err) {
+    console.log("error", err);
+  }
 });
 
 router.get("/top-wine", async (req, res) => {

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const User = require("../models/User.model");
 const Review = require("../models/Review.model");
 const Wine = require("../models/Wine.model");
 const router = require("express").Router();

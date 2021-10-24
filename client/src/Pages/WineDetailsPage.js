@@ -36,17 +36,17 @@ export default function WineDetailsPage(props) {
   const checkUser = () => {
     if (isLoggedIn) {
       user.Favorite.map((userWine) => {
-        if (userWine._id == wine._id) {
+        if (userWine._id === wine._id) {
           setLoved(true)
         }
       })
       user.TriedInThePast.map((userWine) => {
-        if (userWine._id == wine._id) {
+        if (userWine._id === wine._id) {
           setTried(true)
         }
       })
       user.WantToTry.map((userWine) => {
-        if (userWine._id == wine._id) {
+        if (userWine._id === wine._id) {
           setWannaTry(true)
         }
       })

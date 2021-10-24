@@ -2,14 +2,12 @@ var path = require("path");
 
 require("dotenv/config");
 
-var createError = require("http-errors");
 var express = require("express");
 
 var apiRouter = require("./routes/api");
 var usersRouter = require("./routes/users");
 var winesRouter = require("./routes/wine");
 var reviewRouter = require("./routes/review");
-const { isAuthenticated } = require("./middleware/jwt.middleware");
 
 var server = express();
 
