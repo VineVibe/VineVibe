@@ -1,5 +1,12 @@
 # Project 3 Cooper, Jessé, Mathijs, Thea
 
+## Getting started
+
+```
+yarn install
+yarn run dev;all
+```
+
 ## Description
 
 Describe your project in one/two lines.
